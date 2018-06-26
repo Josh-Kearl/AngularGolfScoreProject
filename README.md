@@ -1,6 +1,8 @@
-# AngularGolfScoreCard
+# AngularGolfScoreProject
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+
+make your own branches for features and push those changes to your personal branch; we'll merge all of our features to the dev branch, test it, and hopefully submit it on time XD
 
 ## Development server
 
