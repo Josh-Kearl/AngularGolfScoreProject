@@ -1,8 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatButtonModule, MatCheckboxModule } from '@angular/material';
-
-
 import { AppComponent } from './app.component';
 import { ScorecardComponent } from './scorecard/scorecard.component';
 import { PlayerListComponent } from './player-list/player-list.component';
@@ -13,6 +10,12 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
+import { AppRoutingModule } from './/app-routing.module';
+import { CreateGameComponent } from './create-game/create-game.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -21,15 +24,21 @@ import { environment } from '../environments/environment';
     PlayerListComponent,
     PlayerDetailsComponent,
     LoginPageComponent,
+    CreateGameComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
-    MatButtonModule,
-    MatCheckboxModule,
+    BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase, 'Golf Project'),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    AppRoutingModule,
+    MaterialModule,
+  ],
+  exports: [
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
