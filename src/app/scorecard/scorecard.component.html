@@ -1,60 +1,69 @@
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">  
-              <!-- Player Column -->
+              <!-- Player Column with hole number -->
               <ng-container matColumnDef="holeNumber">
                 <th mat-header-cell *matHeaderCellDef>Player: Josh<!--{{player.name}} --></th>
-                <th mat-header-cell >Hole #</th>
                 <td mat-cell *matCellDef="let element">{{element.holeNumber}}</td>
+                <td mat-footer-cell *matFooterCellDef> Total </td>
               </ng-container>
 
               <ng-container *ngIf="playerCount == 2" matColumnDef="player2">
                 <th mat-header-cell *matHeaderCellDef>Josh<!--{{player.name}} --></th>
-                <td mat-cell *matCellDef="let courseData"> {{courseData.position}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
               </ng-container>
 
               <ng-container *ngIf="playerCount == 3" matColumnDef="player3">
                 <th mat-header-cell *matHeaderCellDef>Josh<!--{{player.name}} --></th>
-                <td mat-cell *matCellDef="let courseData"> {{courseData.position}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
               </ng-container>
             
               <ng-container *ngIf="playerCount == 4" matColumnDef="player4">
                 <th mat-header-cell *matHeaderCellDef>Josh<!--{{player.name}} --></th>
-                <td mat-cell *matCellDef="let courseData"> {{courseData.position}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
               </ng-container>
 
-                <!-- hole number Column -->
-              <ng-container matColumnDef="">
-                <th mat-header-cell *matHeaderCellDef> Hole # </th>
-                <td mat-cell *matCellDef="let element"> {{element.holeNumber}} </td>
+              <ng-container matColumnDef="holeId">
+                  <th mat-header-cell *matHeaderCellDef>Hole: #</th>
               </ng-container>
             
               <!-- Weight Column -->
               <ng-container matColumnDef="score">
-                <th mat-header-cell *matHeaderCellDef> Score</th>
-                <td mat-cell *matCellDef="let courseData"> {{courseData.weight}} </td>
+                <th mat-header-cell *matHeaderCellDef>Score</th>
+                <td mat-cell *matCellDef="let element"> {{element.score}} </td>
+                <td mat-footer-cell *matFooterCellDef> {{getTotal()}} </td>
               </ng-container>
             
               <!-- Holes Column -->
               <ng-container matColumnDef="yardage">
                 <th mat-header-cell *matHeaderCellDef> Total yards </th>
-                <td mat-cell *matCellDef="let courseData"> {{courseData.symbol}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.yardage}} </td>
               </ng-container>
               
               <ng-container matColumnDef="hcp">
                 <th mat-header-cell *matHeaderCellDef> handicap </th>
-                <td mat-cell *matCellDef="let courseData"> {{courseData.symbol}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.hcp}} </td>
               </ng-container>
 
-              <ng-container matColumnDef="Par">
+              <ng-container matColumnDef="par">
                 <th mat-header-cell *matHeaderCellDef> Par </th>
-                <td mat-cell *matCellDef="let courseData"> {{courseData.symbol}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.par}} </td>
               </ng-container>
 
               <ng-container matColumnDef="overUnder">
                 <th mat-header-cell *matHeaderCellDef>Over/Under Par </th>
-                <td mat-cell *matCellDef="let courseData"> {{courseData.symbol}} </td>
+                <td mat-cell *matCellDef="let element"> {{(element.score - element.par)}} </td>
               </ng-container>
+              
+              <!-- <ng-container matColumnDef="totalScore">
+                  <th mat-header-cell *matHeaderCellDef>totalScore</th>
+                  <td mat-cell *matCellDef="let element"> {{element.score += element.score}} </td>
+                </ng-container> -->
 
 
+              
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-header-row *matHeaderRowDef="['holeId']"
+                class="example-second-header-row">
+              </tr>
               <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              <tr mat-footer-row *matFooterRowDef="displayedFooters"></tr>
 </table>
