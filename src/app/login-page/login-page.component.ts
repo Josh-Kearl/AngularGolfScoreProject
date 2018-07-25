@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { AuthService } from '../core/auth.service';
+
 
 @Component({
   selector: 'app-login-page',
@@ -8,7 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(public auth: AuthService) { }
 
   ngOnInit() {
   }

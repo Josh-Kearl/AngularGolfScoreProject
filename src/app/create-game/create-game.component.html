@@ -1,13 +1,17 @@
 <mat-card>
-    <mat-form-field>
-        <mat-select placeholder="Select Tee">
-        </mat-select>
-    </mat-form-field>
-    <mat-form-field>
+        <mat-form-field>
         <mat-select placeholder="Select Course">
+            <mat-option>Please select a course</mat-option>
+            <mat-option (onSelectionChange)="setActiveCourse(course)" *ngFor="let course of courseData"  [value]="course.name">{{course.name}}</mat-option>
         </mat-select>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field *ngIf="selectedCourse">
+            <mat-select placeholder="Select Tee">
+                <mat-option>Select your tee</mat-option>
+                <mat-option (onSelectionChange)="setActiveTee(tee)" *ngFor="let tee of teesOnHole " [value]="tee.teeType">{{tee.teeType}}</mat-option>
+            </mat-select>
+            </mat-form-field>
+    <mat-form-field *ngIf="activeTee">
         <input #input maxlength="10" matInput placeholder="Enter Player Name">
     </mat-form-field>
 </mat-card>

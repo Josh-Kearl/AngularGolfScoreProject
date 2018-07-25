@@ -8,14 +8,7 @@ import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firesto
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { NotifyService } from './notify.service';
-
-interface User {
-  uid: string;
-  email: string;
-  photoURL?: string;
-  displayName?: string; 
-  userTypeId?: string;
-}
+import { User } from './user';
 
 
 @Injectable({

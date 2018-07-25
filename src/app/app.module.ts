@@ -13,9 +13,12 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './/app-routing.module';
 import { CreateGameComponent } from './create-game/create-game.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
-import {MatFormFieldModule} from '@angular/material/form-field';
+
+import { CoursesService } from './services/courses.service';
+import { TeeService } from './services/tee.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase, 'Golf Project'),
     AngularFirestoreModule,
@@ -40,7 +44,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
   exports: [
     MaterialModule,
   ],
-  providers: [],
+  providers: [CoursesService, TeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
