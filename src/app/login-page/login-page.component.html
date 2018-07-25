@@ -1,0 +1,30 @@
+<div *ngIf="auth.user | async; then authenticated else guest">
+
+</div>
+
+
+<ng-template #guest>
+  <p>Login or create a game...</p>
+  <div class="primaryBtnBox">
+    <a class="primaryBtn" mat-raised-button color="primary" (click)="auth.facebookLogin()">
+      <i class="fa fa-facebook-square"></i> Connect Facebook
+    </a>
+  </div>
+    <div class="primaryBtnBox">
+      <a class="primaryBtn" mat-raised-button color="primary" (click)="auth.googleLogin()">
+        <i class="fa fa-google"></i> Connect Google
+      </a>
+    </div>
+</ng-template>
+
+<ng-template #authenticated>
+  <div class="secondaryBtnBox">
+    <a routerLink="/createGame" class="secondaryBtn" mat-raised-button color="primary">New Game</a>
+  </div>
+  <div class="secondaryBtnBox">
+    <a class="secondaryBtn" mat-raised-button color="primary" (click)="auth.signOut()">Logout</a>
+  </div>
+
+
+
+</ng-template>

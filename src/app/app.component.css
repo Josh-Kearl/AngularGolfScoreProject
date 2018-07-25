@@ -1,0 +1,13 @@
+.appTitle {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    position: absolute;
+    background: #4682B4 url("../assets/images/golfBackground.jpg") no-repeat center center;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+}
+
