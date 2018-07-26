@@ -8,7 +8,7 @@
     <mat-form-field *ngIf="selectedCourse">
             <mat-select placeholder="Select Tee">
                 <mat-option>Select your tee</mat-option>
-                <mat-option (onSelectionChange)="setActiveTee(tee)" *ngFor="let tee of teesOnHole " [value]="tee.teeType">{{tee.teeType}}</mat-option>
+                <mat-option *ngFor="let tee of teesOnHole " [value]="tee.teeType">{{tee.teeType}}</mat-option>
             </mat-select>
             </mat-form-field>
     <mat-form-field *ngIf="activeTee">

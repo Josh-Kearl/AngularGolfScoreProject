@@ -48,7 +48,7 @@ const ELEMENT_DATA: ScoreCard[] = [
   styleUrls: ['./scorecard.component.css']
 })
 export class ScorecardComponent implements OnInit {
-  displayedColumns: string[] = ['holeNumber', 'score', 'yardage', 'hcp', 'par',];
+  displayedColumns: string[] = ['holeNumber','yardage', 'hcp', 'par', 'score', ];
   displayedFooters: string[] = ['holeNumber', 'score',];
   dataSource = ELEMENT_DATA;
 
